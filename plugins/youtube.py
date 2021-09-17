@@ -12,6 +12,22 @@ ytregex = r"^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[
 
 @Client.on_message(Filters.regex(ytregex))
 async def ytdl(_, message):
+update_channel = Config.UPDATE_CHANNEL
+    if update_channel:
+        try:
+            user = await bot.get_chat_member(update_channel, update.chat.id)
+            if user.status == "kicked":
+               await update.reply_text("<b>Sorry You Are B a n n e d...!!! \n \nContact My Dev 👉 @BluVds To Resolve This Problem</b>")
+               return
+        except UserNotParticipant:
+            await update.reply_text(
+                text="**<b>Oh Dear In Order To Use Me Join My Update Channel 🤭</b>**",
+                reply_markup=InlineKeyboardMarkup([
+                    [ InlineKeyboardButton(text="Join My Updates Channel", url=f"https://t.me/TN57_BotZ")]
+              ])
+            )
+            return
+        else:
     userLastDownloadTime = user_time.get(message.chat.id)
     try:
         if userLastDownloadTime > datetime.now():
