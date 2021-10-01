@@ -13,7 +13,7 @@ import time
 if bool(os.environ.get("WEBHOOK", False)):
     from config import Config
 else:
-    from sample_config import Config
+    from config import Config
 
 # the Strings used for this "thing"
 from translation import Translation
