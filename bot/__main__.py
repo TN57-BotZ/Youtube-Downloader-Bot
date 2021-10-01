@@ -1,5 +1,5 @@
 from pyrogram import Client
-import sample_config
+import config
 
 DOWNLOAD_LOCATION = "./Downloads"
 BOT_TOKEN = config.BOT_TOKEN
